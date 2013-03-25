@@ -16,11 +16,18 @@ define([
       return this;
     },
     boardStringParsed: function (boardString) {
+      var imgPre = 'images/pieces/';
+      var imgSuf = '.png';
       var index = (this.rank - 1) * 8 + (this.file - 1);
       var piece = boardString[index];
 
       if (piece != '-') {
-        this.$el.html(boardString[index]);
+        var imgStr = 'b' + piece;
+        if (piece == piece.toUpperCase()) {
+          imgStr = 'w' + piece.toLowerCase();
+        }
+
+        this.$el.html('<img src="' + imgPre + imgStr + imgSuf + '" />');
       }
       else {
         this.$el.empty();
