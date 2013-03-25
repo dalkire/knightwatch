@@ -19,18 +19,22 @@ define([
       var imgPre = 'images/pieces/';
       var imgSuf = '.png';
       var index = (this.rank - 1) * 8 + (this.file - 1);
-      var piece = boardString[index];
+      var newPiece = boardString[index];
 
-      if (piece != '-') {
-        var imgStr = 'b' + piece;
-        if (piece == piece.toUpperCase()) {
-          imgStr = 'w' + piece.toLowerCase();
+      if (newPiece != this.piece) {
+        if (newPiece == '-') {
+          this.$el.empty();
+        }
+        else {
+          var imgStr = 'b' + newPiece;
+          if (newPiece == newPiece.toUpperCase()) {
+            imgStr = 'w' + newPiece.toLowerCase();
+          }
+
+          this.$el.html('<img src="' + imgPre + imgStr + imgSuf + '" />');
         }
 
-        this.$el.html('<img src="' + imgPre + imgStr + imgSuf + '" />');
-      }
-      else {
-        this.$el.empty();
+        this.piece = newPiece;
       }
     }
   });
