@@ -23,7 +23,7 @@ require([
   'views/board'
 ], function($, _, Backbone, BoardView) {
   var dispatcher = _.extend({}, Backbone.Events);
-  var boardView = new BoardView({ tagName: 'pre', dispatcher: dispatcher });
+  var boardView = new BoardView({ dispatcher: dispatcher });
 
   var parseMove = function(moveString) {
     var moveArray   = moveString.split(' ');
@@ -35,7 +35,7 @@ require([
     var whiteTime   = moveArray[23];
     var blackTime   = moveArray[24];
 
-    dispatcher.trigger('boardStringParsed', boardArray);
+    dispatcher.trigger('boardStringParsed', boardString);
     dispatcher.trigger('whoseMove', whoseMove);
     dispatcher.trigger('whiteName', whiteName);
     dispatcher.trigger('blackName', blackName);

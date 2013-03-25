@@ -2,9 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'collections/squares',
-  'views/square'
-], function($, _, Backbone, SquaresCollection, SquareView) {
+  'collections/ranks',
+  'views/rank'
+], function($, _, Backbone, RanksCollection, RankView) {
   var BoardView = Backbone.View.extend({
     className: 'board-view',
     initialize: function(options) {
@@ -12,27 +12,25 @@ define([
       this.dispatcher.on('boardStringParsed', this.boardStringParsed, this);
       
       // Upper-left to lower-right as white (a8-h1)
-      var squaresArray = [];
-      for (var i = 0; i < 64; i++) {
-        var color = (i % 2 == 0) ? 'white' : 'black';
-        squaresArray[i] = { color: color };
+      var ranksArray = [];
+      for (var i = 0; i < 8 ; i++) {
+        ranksArray[i] = { id: i + 1 };
       }
 
-      this.collection = new SquaresCollection(squaresArray);
+      this.collection = new RanksCollection(ranksArray);
       console.log(this.collection);
     },
     render: function() {
       var that = this;
       this.$el.html('');
 
-      this.collection.each(function(squareModel) {
-        var classes = 'square-view ' + squareModel.get('color');
-        var squareView = new SquareView({
-          model: squareModel,
-          className: classes
+      this.collection.each(function(rankModel) {
+        var rankView = new RankView({
+          model: rankModel,
+          dispatcher: that.dispatcher
         });
 
-        that.$el.append(squareView.render().el);
+        that.$el.append(rankView.render().el);
       });
       
       return this;
