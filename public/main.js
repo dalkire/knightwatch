@@ -36,6 +36,7 @@ require([
     var blackTime   = moveArray[24];
 
     dispatcher.trigger('boardStringParsed', boardString);
+    dispatcher.trigger('moveString', moveString);
     dispatcher.trigger('whoseMove', whoseMove);
     dispatcher.trigger('whiteName', whiteName);
     dispatcher.trigger('blackName', blackName);
