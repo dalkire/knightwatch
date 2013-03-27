@@ -19,7 +19,7 @@ define([
 
         var files = 'abcdefgh';
         var index = squareModel.get('id') - 1;
-        var id = '' + files[index] + (9 - that.model.get('id'));
+        var id = '' + files[index] + that.model.get('id');
         var className = 'square-view ' + squareModel.get('color');
         var squareView = new SquareView({
           id: id,

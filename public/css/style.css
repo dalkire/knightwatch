@@ -11,6 +11,11 @@
   font-size: 24px;
 }
 
+img.piece {
+  height: 76px;
+  width: 76px;
+}
+
 .square-view.white {
   background-color: beige;
 }
@@ -20,7 +25,7 @@
 }
 
 .square-view.highlight {
-  -webkit-box-shadow:inset 0px 0px 0px 2px #f00;
-  -moz-box-shadow:inset 0px 0px 0px 2px #f00;
-  box-shadow:inset 0px 0px 0px 2px #f00;
+  -webkit-box-shadow:inset 0px 0px 0px 3px #f00;
+  -moz-box-shadow:inset 0px 0px 0px 3px #f00;
+  box-shadow:inset 0px 0px 0px 3px #f00;
 }

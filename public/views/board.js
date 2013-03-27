@@ -13,19 +13,21 @@ define([
       
       // Upper-left to lower-right as white (a8-h1)
       var ranksArray = [];
-      for (var i = 0; i < 8 ; i++) {
-        ranksArray[i] = { id: i + 1 };
+      for (var i = 8; i >= 1 ; i--) {
+        ranksArray[8 - i] = { id: i };
       }
 
       this.collection = new RanksCollection(ranksArray);
-      console.log(this.collection);
+      console.log('==============', this.collection);
     },
     render: function() {
       var that = this;
       this.$el.html('');
 
       this.collection.each(function(rankModel) {
+        var id = 'rank-' + rankModel.get('id');
         var rankView = new RankView({
+          id: id,
           model: rankModel,
           dispatcher: that.dispatcher
         });

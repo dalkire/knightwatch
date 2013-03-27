@@ -24,7 +24,9 @@ define([
       var boardString = this.parseBoardString(moveString);
       var imgPre = 'images/pieces/';
       var imgSuf = '.png';
-      var index = (this.rank - 1) * 8 + (this.file - 1);
+
+      // Remember that the board string goes from a8 to h1
+      var index = (8- this.rank) * 8 + (this.file - 1);
       var newPiece = boardString[index];
       var highlightSquares = verboseMove.match(/[a-h]{1}[1-8]{1}/g);
       console.log('highlightSquares: ', highlightSquares);
@@ -47,7 +49,7 @@ define([
             imgStr = 'w' + newPiece.toLowerCase();
           }
 
-          this.$el.html('<img src="' + imgPre + imgStr + imgSuf + '" />');
+          this.$el.html('<img class="piece" src="' + imgPre + imgStr + imgSuf + '" />');
         }
 
         this.piece = newPiece;
