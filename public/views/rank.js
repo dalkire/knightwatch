@@ -15,8 +15,6 @@ define([
       this.$el.html('');
 
       this.model.get('squares').each(function(squareModel) {
-        console.log(that);
-
         var files = 'abcdefgh';
         var index = squareModel.get('id') - 1;
         var id = '' + files[index] + that.model.get('id');
@@ -31,7 +29,6 @@ define([
         that.$el.append(squareView.render().el);
       });
 
-      console.log('rankView model: ', this.model.toJSON());
       return this;
     }
   });

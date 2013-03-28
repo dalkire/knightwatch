@@ -52,6 +52,10 @@ require([
     socket.on('move', function (moveString) {
       parseMove(moveString);
     });
+
+    socket.on('data', function (data) {
+      console.log(data);
+    });
   };
 
   initialize();

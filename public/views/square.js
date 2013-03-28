@@ -20,7 +20,6 @@ define([
       var moveArray = moveString.split(' ');
       var verboseMove = moveArray[26];
       var prettyMove = moveArray[28];
-      console.log('prettyMove: ', prettyMove);
       var boardString = this.parseBoardString(moveString);
       var imgPre = 'images/pieces/';
       var imgSuf = '.png';
@@ -29,11 +28,9 @@ define([
       var index = (8- this.rank) * 8 + (this.file - 1);
       var newPiece = boardString[index];
       var highlightSquares = verboseMove.match(/[a-h]{1}[1-8]{1}/g);
-      console.log('highlightSquares: ', highlightSquares);
-      console.log('coord: ', this.coord);
+
       if ($.inArray(this.coord, highlightSquares) != -1) {
         this.$el.addClass('highlight');
-        console.log('highlight: ', this.coord);
       }
       else {
         this.$el.removeClass('highlight');

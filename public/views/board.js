@@ -18,7 +18,7 @@ define([
       }
 
       this.collection = new RanksCollection(ranksArray);
-      console.log('==============', this.collection);
+      // console.log('==============', this.collection);
     },
     render: function() {
       var that = this;

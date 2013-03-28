@@ -65,6 +65,8 @@ client.on('data', function(data) {
     var myRegexp = /\n\r<12> (.*?)\n\r/g;
     var match = myRegexp.exec(str);
 
+    sock.emit('data', str);
+
     // If data matched a style-12 line,
     // pass that to our browser client
     if (match && match[1]) {
