@@ -5,7 +5,7 @@ define([
   var RankModel = Backbone.Model.extend({
     initialize: function(options) {
       var parity = (this.get('id') % 2 == 0) ? 'even' : 'odd';
-      var color = (parity == 'odd') ? 'white' : 'black';
+      var color = (parity == 'even') ? 'white' : 'black';
       var squaresArr = [];
       var fileLetters = 'abcdefgh';
 
